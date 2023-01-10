@@ -6,15 +6,11 @@ public class Vet {
     public Vet(String vetName) {
         this.vetName = vetName;
     }
-
-    public String getVetName() {
-        return vetName;
-    }
-
+    
     void treatAnimal(Animal animal) {
         if (animal.state == HealthState.BAD) {
             animal.state = HealthState.GOOD;
-            System.out.println("Ветеринарный врач " + getVetName() + " вылечил: " + animal.name + ", состояние здоровья животного: " + animal.state + "." + "\n");
+            System.out.println("Ветеринарный врач " + vetName + " вылечил: " + animal.name + ", состояние здоровья животного: " + animal.state + "." + "\n");
         }
     }
 }
