@@ -1,8 +1,10 @@
 package HWLesson19Part1Animals;
 
 public class Cat extends Animal {
+    private static int catCounter;
     public Cat(String name, String food, int foodCounter, String location, int counter, HealthState state) {
         super(name, food, foodCounter, location, counter, state);
+        catCounter++;
     }
 
     @Override
@@ -22,6 +24,6 @@ public class Cat extends Animal {
                 "Кличка: " + name + ",\n" +
                 "Страна обитания: " + location + ",\n" +
                 "Состояние здоровья: " + state.getHealth() + ",\n" +
-                "Сколько особей: " + counter + "\n";
+                "Сколько особей: " + catCounter + "\n";
     }
 }

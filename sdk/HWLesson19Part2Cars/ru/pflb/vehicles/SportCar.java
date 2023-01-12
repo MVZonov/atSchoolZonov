@@ -1,12 +1,13 @@
 package HWLesson19Part2Cars.ru.pflb.vehicles;
 
+import HWLesson19Part2Cars.ru.pflb.Person;
 import HWLesson19Part2Cars.ru.pflb.details.Engine;
 import HWLesson19Part2Cars.ru.pflb.professions.Driver;
 
 public class SportCar extends Car {
     int maxVelocity;
 
-    public SportCar(String model, VehicleClass vehicleClass, int weight, Driver driver, Engine engine, int maxVelocity) {
+    public SportCar(String model, VehicleClass vehicleClass, int weight, Person driver, Engine engine, int maxVelocity) {
         super(model, vehicleClass, weight, driver, engine);
         this.maxVelocity = maxVelocity;
     }

@@ -1,13 +1,13 @@
 package HWLesson19Part2Cars.ru.pflb.vehicles;
 
+import HWLesson19Part2Cars.ru.pflb.Person;
 import HWLesson19Part2Cars.ru.pflb.details.Engine;
-import HWLesson19Part2Cars.ru.pflb.professions.Driver;
 
 public class Car {
     private String model;
     private VehicleClass vehicleClass;
     private int weight;
-    private Driver driver;
+    private Person driver;
     private Engine engine;
 
     public String getModel() {
@@ -22,7 +22,7 @@ public class Car {
         return weight;
     }
 
-    public Driver getDriver() {
+    public Person getDriver() {
         return driver;
     }
 
@@ -30,7 +30,7 @@ public class Car {
         return engine;
     }
 
-    public Car(String model, VehicleClass vehicleClass, int weight, Driver driver, Engine engine) {
+    public Car(String model, VehicleClass vehicleClass, int weight, Person driver, Engine engine) {
         this.model = model;
         this.vehicleClass = vehicleClass;
         this.weight = weight;

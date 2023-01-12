@@ -6,9 +6,9 @@ import HWLesson19Part2Cars.ru.pflb.vehicles.*;
 
 public class Main {
     public static void main(String[] args) {
-        Driver carDriver = new Driver("Макс", 19, 1, 1234);
-        Driver lorryDriver = new Driver("Дядя Ваня", 65, 63, 7898);
-        Driver sportCarDriver = new Driver("Colin McRae", 39, 21, 6467);
+        Person carDriver = new Driver("Макс", 19, 1, 1234);
+        Person lorryDriver = new Driver("Дядя Ваня", 65, 63, 7898);
+        Person sportCarDriver = new Driver("Colin McRae", 39, 21, 6467);
         Engine carEngine = new Engine("Renault", 100);
         Engine lorryEngine = new Engine("Камаз", 154);
         Engine sportCarEngine = new Engine("ВАЗ", 77);

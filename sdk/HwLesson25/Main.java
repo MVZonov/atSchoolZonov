@@ -1,35 +1,41 @@
 package HwLesson25;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.time.*;
 import java.util.GregorianCalendar;
-import java.util.concurrent.TimeUnit;
+import java.util.TimeZone;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         long m = System.currentTimeMillis();
 //Date
         long m1 = System.currentTimeMillis();
+        Date currentTime = new Date();
         SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
         SimpleDateFormat sdf2 = new SimpleDateFormat("d-M-yy");
         SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-d");
         SimpleDateFormat sdf4 = new SimpleDateFormat("yy/M/d");
         SimpleDateFormat sdf5 = new SimpleDateFormat("yyyy.dd.MM");
-        Date matveyBirthtDate1 = new Date(90, 9, 7);
+        Date matveyBirthtDate1 = new Date(90, 8, 7);
         System.out.println(sdf1.format(matveyBirthtDate1));
         System.out.println(sdf2.format(matveyBirthtDate1));
         System.out.println(sdf3.format(matveyBirthtDate1));
         System.out.println(sdf4.format(matveyBirthtDate1));
         System.out.println(sdf5.format(matveyBirthtDate1));
         Date now1 = new Date();
-        System.out.println(matveyBirthtDate1.equals(now1));
-        long duration  = now1.getTime() - matveyBirthtDate1.getTime();
-        long fullYears1 = (TimeUnit.MILLISECONDS.toDays(duration))/365;
-        long theRestOfDays = (TimeUnit.MILLISECONDS.toDays(duration))%365;
-        System.out.println("Матвею " + fullYears1 + " года и " + theRestOfDays + " дня.");
+        LocalDate matveyBirthtDate1Converted = LocalDate.parse( new SimpleDateFormat("yyyy-MM-dd").format(matveyBirthtDate1) );
+        LocalDate now1Converted = LocalDate.parse( new SimpleDateFormat("yyyy-MM-dd").format(now1) );
+        Period periodBetweenDate = Period.between(matveyBirthtDate1Converted,now1Converted);
+        int yearDate = periodBetweenDate.getYears();
+        int monthDate = periodBetweenDate.getMonths();
+        int dayOfMonthDate = periodBetweenDate.getMonths();
+        System.out.println("Возраст Матвея лет: " + yearDate + ", месяцев: " + monthDate + ", дней: " + (dayOfMonthDate+1) + ".");
         System.out.println("Время выполнения Date - " + (double) (System.currentTimeMillis() - m1) + " ms.\n");
-
+        Date newTime = new Date();
+        long timeDateExecution = currentTime.getTime() - newTime.getTime();
+        System.out.println("Время выполнения Date - " + timeDateExecution + " ms.\n");
 
 //LocalDate
         long m2 = System.currentTimeMillis();
@@ -49,7 +55,7 @@ public class Main {
         long fullYears2 = period.getYears();
         long fullMonths2 = period.getMonths();
         long fullDays2 = period.getDays();
-        System.out.println("Матвею " + fullYears2 + " года, " + fullMonths2 + " месяца и " + fullDays2 + " дня.");
+        System.out.println("Возраст Матвея лет: " + fullYears2 + ", месяцев: " + fullMonths2 + ", дней: " + fullDays2 + ".");
         System.out.println("Время выполнения LocalDate - " + (double) (System.currentTimeMillis() - m2) + " ms.\n");
 
 //LocalDateTime
@@ -71,7 +77,7 @@ public class Main {
         long fullYears3 = period2.getYears();
         long fullMonths3 = period2.getMonths();
         long fullDays3 = period2.getDays();
-        System.out.println("Матвею " + fullYears3 + " года, " + fullMonths3 + " месяца и " + fullDays3 + " дня.");
+        System.out.println("Возраст Матвея лет: " + fullYears3 + ", месяцев: " + fullMonths3 + ", дней: " + fullDays3 + ".");
         System.out.println("Время выполнения LocalDateTime - " + (double) (System.currentTimeMillis() - m3) + " ms.\n");
 
 //ZonedDateTime
@@ -91,25 +97,30 @@ public class Main {
         long fullYears4 = period1.getYears();
         long fullMonths4 = period1.getMonths();
         long fullDays4 = period1.getDays();
-        System.out.println("Матвею " + fullYears4 + " года, " + fullMonths4 + " месяца и " + fullDays4 + " дня.");
+        System.out.println("Возраст Матвея лет: " + fullYears4 + ", месяцев: " + fullMonths4 + ", дней: " + fullDays4 + ".");
         System.out.println("Время выполнения ZonedDateTime - " + (double) (System.currentTimeMillis() - m4) + " ms.\n");
 
 //GregorianCalendar
         long m5 = System.currentTimeMillis();
-        Calendar matveyBirthtDate5 =  new GregorianCalendar(1990, 9, 7);
+        Calendar matveyBirthtDate5 =  new GregorianCalendar(1990, 8, 7);
         int year3 = matveyBirthtDate5.get(Calendar.YEAR);
-        int month3 = matveyBirthtDate5.get(Calendar.MONTH);
+        int month3 = matveyBirthtDate5.get(Calendar.MONTH) + 1;
         int dayOfMonth3 = matveyBirthtDate5.get(Calendar.DAY_OF_MONTH);
-        System.out.println(matveyBirthtDate5.get(Calendar.YEAR) + "-" + matveyBirthtDate5.get(Calendar.MONTH) + "-" + matveyBirthtDate5.get(Calendar.DAY_OF_MONTH));
+        System.out.println(matveyBirthtDate5.get(Calendar.YEAR) + "-" + (matveyBirthtDate5.get(Calendar.MONTH)+1) + "-" + matveyBirthtDate5.get(Calendar.DAY_OF_MONTH));
         System.out.printf("%d.%d.%d \n", dayOfMonth3, month3, year3);
         System.out.printf("%d-%d-%d \n", dayOfMonth3, month3, year3);
         System.out.printf("%d/%d/%d \n", dayOfMonth3, month3, year3);
         System.out.printf("%d%d%d \n", dayOfMonth3, month3, year3);
         Calendar now5 = new GregorianCalendar();
-        long duration5 = now5.getTimeInMillis()-matveyBirthtDate5.getTimeInMillis();
-        long fullYears5 = (TimeUnit.MILLISECONDS.toDays(duration5))/365;
-        long theRestOfDays5 = (TimeUnit.MILLISECONDS.toDays(duration5))%365;
-        System.out.println("Матвею " + fullYears5 + " года и " + theRestOfDays5 + " дня.");
+        TimeZone tz = matveyBirthtDate5.getTimeZone();
+        ZoneId zid = tz == null ? ZoneId.systemDefault() : tz.toZoneId();
+        LocalDate localDate = LocalDateTime.ofInstant(matveyBirthtDate5.toInstant(), zid).toLocalDate();
+        LocalDate localDateNow5 = LocalDateTime.ofInstant(now5.toInstant(), zid).toLocalDate();
+        Period periodGregorianCalendar = Period.between(localDate,localDateNow5);
+        int year5 = periodGregorianCalendar.getYears();
+        int month5 = periodGregorianCalendar.getMonths();
+        int dayOfMonth5 = periodGregorianCalendar.getMonths();
+        System.out.println("Возраст Матвея лет: " + year5 + ", месяцев: " + month5 + ", дней: " + (dayOfMonth5+1) + ".");
         System.out.println("Время выполнения GregorianCalendar - " + (double) (System.currentTimeMillis() - m5) + " ms.\n");
 
 //Общее время выполнения программы:
