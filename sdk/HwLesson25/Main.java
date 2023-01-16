@@ -1,5 +1,4 @@
 package HwLesson25;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -8,7 +7,7 @@ import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 public class Main {
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) {
         long m = System.currentTimeMillis();
 //Date
         long m1 = System.currentTimeMillis();
