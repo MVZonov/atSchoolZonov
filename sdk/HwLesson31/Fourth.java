@@ -1,6 +1,6 @@
 package HwLesson31;
 
-public class fourth {
+public class Fourth {
     public static void main(String[] args) {
 //        Напишите программу, которая вычисляет и выводит сумму, которую вы получите через t лет при размещении суммы P
 //        на счете под ежегодный процент r.
