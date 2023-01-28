@@ -1,7 +1,7 @@
 package HwLesson43;
 
 public class Task5 {
-//    Товар стоит a руб. b коп. За него заплатили c руб. d коп.
+    //    Товар стоит a руб. b коп. За него заплатили c руб. d коп.
 //    Напишите программу, расчитывающую сдачу.
 //    Целые числа a, b, c, d передаются через аргументы командной строки.
 //    Проверку на наличие аргументов делать не надо.
@@ -17,13 +17,15 @@ public class Task5 {
         int b = Integer.parseInt(args[1]);
         int c = Integer.parseInt(args[2]);
         int d = Integer.parseInt(args[3]);
+        int totalKopeksPrice = a * 100 + b;
+        int totalKopecsGiven = c * 100 + d;
+        int finalChangeRubles = (totalKopecsGiven - totalKopeksPrice) / 100;
+        int finalChangeKopeks = (totalKopecsGiven - totalKopeksPrice) % 100;
         if (a < 0 || b < 0 || c < 0 || d < 0) {
             System.out.println("Одно или несколько введённых значений отрицательные.");
-        } else if (c >= a & b > d) {
+        } else if (totalKopeksPrice > totalKopecsGiven) {
             System.out.println("Не хвататет денег.");
-        } else if (b > d) {
-            System.out.println("Сдача: " + ((c - a) - 1) + " Руб, " + Math.abs(d - b) + " Коп.");
         } else
-            System.out.println("Сдача: " + (c - a) + " Руб, " + (d - b) + " Коп.");
+            System.out.println("Сдача: " + finalChangeRubles + " Руб, " + finalChangeKopeks + " Коп.");
     }
 }
