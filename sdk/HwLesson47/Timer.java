@@ -31,7 +31,11 @@ public class Timer {
     public static void main(String[] args) {
         int second = Integer.parseInt(args[0]);
         Timer timer = new Timer(second);
-        timer.start();
+        if (second>=0){
+        timer.start();}
+        else {
+            System.out.println("Введённое число меньше 0.");
+        }
     }
 
     public static void waitSecond() {
