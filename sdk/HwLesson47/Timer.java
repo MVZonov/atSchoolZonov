@@ -31,9 +31,9 @@ public class Timer {
     public static void main(String[] args) {
         int second = Integer.parseInt(args[0]);
         Timer timer = new Timer(second);
-        if (second>=0){
-        timer.start();}
-        else {
+        if (second >= 0) {
+            timer.start();
+        } else {
             System.out.println("Введённое число меньше 0.");
         }
     }
@@ -48,11 +48,11 @@ public class Timer {
     }
 
     public void printTime(int s) {
-        int min = s/60;
-        int sec = s%60;
+        int min = s / 60;
+        int sec = s % 60;
         String formattedMin = String.format("%02d", min);
         String formattedSec = String.format("%02d", sec);
-        System.out.println(formattedMin +  ":"+ formattedSec);
+        System.out.println(formattedMin + ":" + formattedSec);
 
     }
 

@@ -37,7 +37,9 @@ public class Task4 {
     }
 }
 
-
-
+//    static int nextInt(int x) {
+//        int randomNumber = return randomNumber;
+//    }
+//return (int) (Math.random() * x);
 
 

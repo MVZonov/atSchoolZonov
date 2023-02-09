@@ -8,9 +8,10 @@ public class Task2 {
 //    проработала вся бригада.
 //    Результат вычислений выведите на экран в часах и минутах.
 //            Например, "Бригада работало 0 часов 30 минут".
+
     public static void main(String[] args) {
-        int m = Integer.parseInt(args[0]); //часы
-        int n = Integer.parseInt(args[1]); //сенокосилки
+        int n = Integer.parseInt(args[0]); //сенокосилки
+        int m = Integer.parseInt(args[1]); //часы
         int timeInSec = m * 3600;
         int tenMin = 600;
         int result = timeInSec;
@@ -19,9 +20,9 @@ public class Task2 {
         } else {
             for (int i = 1; i < n; i++) {
                 timeInSec = timeInSec + tenMin;
-                result += timeInSec;
+                result = result + timeInSec;
             }
-            System.out.println("Бригада работала "+(result/3600) +  " часов "+ ((result%3600)/60) + " минут");
+            System.out.println("Бригада работала " + (result / 3600) + " часов " + ((result % 3600) / 60) + " минут");
         }
     }
 }
