@@ -1,11 +1,10 @@
 package HwLesson58;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.stream.IntStream;
 
 public class Task5 {
-//    Напишите программу, которая создает зубчатый массив целочисленных элементов, сгенеренных случайным образов в диапазоне -9 до 9.
+    //    Напишите программу, которая создает зубчатый массив целочисленных элементов, сгенеренных случайным образов в диапазоне -9 до 9.
 //    Массив должен содержать не более 5 строк и каждая строка иметь не более 7 столбцов.
 //    Выведите массив на экран в порядке убывания сумм элементов строк.
     public static void main(String[] args) {
@@ -17,31 +16,29 @@ public class Task5 {
             fillArray(innerArray);
             raggedArr[i] = innerArray;
         }
-//      Печать исходного массива:
         for (int[] rows : raggedArr) {
             System.out.println(Arrays.toString(rows));
         }
-//      Сложение элементов:
+//        Сложение элементов:
         for (int[] ints : raggedArr) {
             int total = IntStream.of(ints).sum();
             System.out.println(total);
         }
-//      Сортировка:
-        Arrays.sort(raggedArr, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] a, int[] b) {
-                int sumA = 0;
-                for (int num : a) {
-                    sumA += num;
+//        Сортировка:
+        boolean isSorted = false;
+        int[] buf;
+        while (!isSorted) {
+            isSorted = true;
+            for (int i = 0; i < raggedArr.length - 1; i++) {
+                if (rowSumm(raggedArr[i]) < rowSumm(raggedArr[i + 1])) {
+                    isSorted = false;
+
+                    buf = raggedArr[i];
+                    raggedArr[i] = raggedArr[i + 1];
+                    raggedArr[i + 1] = buf;
                 }
-                int sumB = 0;
-                for (int num : b) {
-                    sumB += num;
-                }
-                return Integer.compare(sumB, sumA);
             }
-        });
-//      Вывод отсортированного массива:
+        }
         for (int[] rows : raggedArr) {
             System.out.println(Arrays.toString(rows));
         }
@@ -51,5 +48,13 @@ public class Task5 {
         for (int i = 0; i < a.length; i++) {
             a[i] = ((int) (Math.random() * 18) - 9);
         }
+    }
+
+    static int rowSumm(int[] a) {
+        int result = 0;
+        for (int i = 0; i < a.length; i++) {
+            result += a[i];
+        }
+        return result;
     }
 }
