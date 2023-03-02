@@ -12,11 +12,17 @@ public abstract class Fruit {
     public BigDecimal price; //цена
     public String name; //название фрукта
 
-    public abstract double getWeight();
+    public double getWeight() {
+        return weight;
+    }
 
-    public abstract BigDecimal getPrice();
+    public BigDecimal getPrice() {
+        return price;
+    }
 
-    public abstract String getName();
+    public String getName() {
+        return name;
+    }
 
     @Override
     public String toString() {

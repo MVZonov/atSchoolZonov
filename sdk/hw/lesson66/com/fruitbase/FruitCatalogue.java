@@ -5,9 +5,9 @@ import hw.lesson66.com.fruitbase.fruits.Banana;
 import hw.lesson66.com.fruitbase.fruits.Orange;
 import hw.lesson66.com.fruitbase.fruits.Pineapple;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 public class FruitCatalogue {
     //    содержит поле массив Fruit - список записей известных фруктов
@@ -19,7 +19,12 @@ public class FruitCatalogue {
     List<Fruit> fruits;
 
     public FruitCatalogue() {
-        fruits = Arrays.asList(new Apple(), new Orange(), new Banana(), new Pineapple());
+        fruits = Arrays.asList(
+                new Apple(1, BigDecimal.valueOf(12.97)),
+                new Orange(1, BigDecimal.valueOf(14.97)),
+                new Banana(1, BigDecimal.valueOf(10.97)),
+                new Pineapple(1, BigDecimal.valueOf(17.97))
+        );
     }
 
     public Fruit findFruit(String yourFruit) {
